@@ -3,6 +3,8 @@ import org.jetbrains.annotations.NotNull;
 /**
  * В теле класса решения разрешено использовать только финальные переменные типа RegularInt.
  * Нельзя volatile, нельзя другие типы, нельзя блокировки, нельзя лазить в глобальные переменные.
+ *
+ * @author :TODO: LastName FirstName
  */
 public class SolutionTemplateJava implements MonotonicClock {
     private final RegularInt c1 = new RegularInt(0);

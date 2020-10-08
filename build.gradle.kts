@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
-    kotlin("jvm") version "1.3.50"
+    kotlin("jvm") version "1.4.0"
     java
     application
 }
@@ -17,14 +17,8 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
 }
 
-sourceSets {
-    main {
-        java.setSrcDirs(listOf("src"))
-        withConvention(KotlinSourceSet::class) {
-            kotlin.setSrcDirs(listOf("src"))
-        }
-    }
-}
+sourceSets["main"].java.setSrcDirs(listOf("src"))
+sourceSets["test"].java.setSrcDirs(listOf("test"))
 
 application {
     mainClassName = "VerifyMonotonicClockKt"
