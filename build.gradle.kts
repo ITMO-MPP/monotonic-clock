@@ -1,27 +1,35 @@
-import org.jetbrains.kotlin.gradle.plugin.*
-
 plugins {
-    kotlin("jvm") version "1.4.0"
+    kotlin("jvm") version "1.7.10"
     java
     application
 }
 
 group = "ru.ifmo.mpp"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
 }
 
-sourceSets["main"].java.setSrcDirs(listOf("src"))
-sourceSets["test"].java.setSrcDirs(listOf("test"))
+sourceSets.main {
+    java.srcDir("src")
+}
+
+sourceSets.test {
+    java.srcDir("test")
+}
 
 application {
-    mainClassName = "VerifyMonotonicClockKt"
+    mainClass.set("VerifyMonotonicClockKt")
 }
 
 tasks["build"].dependsOn("run")
