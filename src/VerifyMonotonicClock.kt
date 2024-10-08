@@ -105,7 +105,7 @@ fun main() {
     }
     (readers + writers).forEach { it.start() }
     repeat(TEST_TIME_SEC) { sec ->
-        println("#$sec: Running progress = ${groups.sumBy { it.ticks }}")
+        println("#$sec: Running progress = ${groups.sumOf { it.ticks }}")
         groups.forEach { it.verify() }
         Thread.sleep(1000)
     }
