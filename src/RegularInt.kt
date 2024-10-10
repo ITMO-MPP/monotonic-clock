@@ -1,6 +1,6 @@
 import kotlin.reflect.KProperty
 
-class RegularInt(var value: Int) {
+class RegularInt(@Volatile var value: Int) {
     operator fun getValue(thisRef: Any?, prop: KProperty<*>): Int {
         return this.value
     }
